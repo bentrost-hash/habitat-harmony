@@ -25,6 +25,7 @@ let ownedPacks = new Set(
   JSON.parse(localStorage.getItem("habitat-harmony-packs") || "null") || packs,
 );
 const availableAnimals = () => animals.filter((a) => ownedPacks.has(a.dlc));
+const maxFamilyLand = Math.max(...animals.map((a) => a.familyLandRequirement));
 const savedPlans = () =>
   JSON.parse(localStorage.getItem("habitat-harmony-plans") || "[]");
 const savePlans = (plans) =>
@@ -59,7 +60,13 @@ const levelIcon = (key) =>
     }[key],
   );
 
-function setupAutocomplete(input, menu, pick, exclude = () => false) {
+function setupAutocomplete(
+  input,
+  menu,
+  pick,
+  exclude = () => false,
+  { clearOnPick = true } = {},
+) {
   const close = () => {
     menu.innerHTML = "";
     input.setAttribute("aria-expanded", "false");
@@ -88,7 +95,7 @@ function setupAutocomplete(input, menu, pick, exclude = () => false) {
     const button = e.target.closest("button[data-id]");
     if (!button) return;
     pick(byId.get(button.dataset.id));
-    input.value = "";
+    if (clearOnPick) input.value = "";
     close();
   });
   input.addEventListener("keydown", (e) => {
@@ -180,22 +187,59 @@ function selectOptions(placeholder) {
       .join("")
   );
 }
+
+function bar(value, label) {
+  return `<span class="profile-bar" role="img" aria-label="${esc(label)}" style="--bar-value:${Math.max(0, Math.min(100, value))}%"><span></span></span>`;
+}
+
+function temperatureBar(range) {
+  const start = Math.max(0, Math.min(100, (range.min / 50) * 100));
+  const end = Math.max(start, Math.min(100, (range.max / 50) * 100));
+  return `<span class="profile-bar temperature-bar" role="img" aria-label="Comfortable temperature ${tempText(range)}"><span style="--range-start:${start}%;--range-width:${end - start}%"></span></span>`;
+}
+
+function profileRow(label, value, visual) {
+  return `<div class="profile-row"><div><span>${esc(label)}</span><strong>${esc(value)}</strong></div>${visual}</div>`;
+}
+
+function animalProfile(animal, position) {
+  const waterLevel = animal.water.deepDiver ? 100 : animal.water.canSwim ? 58 : 0;
+  const waterText = animal.water.deepDiver
+    ? "Deep water required"
+    : animal.water.canSwim
+      ? "Swimming access"
+      : "No water requirement";
+  const climbingText = animal.climbing ? "Climbing required" : "Not required";
+  const land = Math.round(animal.familyLandRequirement).toLocaleString();
+  return `<section class="animal-profile"><header class="profile-head"><div><h3>${esc(animal.name)}</h3><p>${esc(position)} · ${esc(animal.dlc)}</p></div><span class="profile-origin">${esc(animal.continents.join(", "))}</span></header><div class="profile-biomes"><span>Preferred biomes</span><div>${animal.biomes.map((biome) => `<em>${esc(biome)}</em>`).join("")}</div></div><div class="profile-rows">${profileRow("Temperature", tempText(animal.temperature), temperatureBar(animal.temperature))}${profileRow("Family habitat baseline", `${land} m²`, bar((animal.familyLandRequirement / maxFamilyLand) * 100, `Relative family habitat baseline: ${land} square metres`))}${profileRow("Water", waterText, bar(waterLevel, waterText))}${profileRow("Climbing", climbingText, bar(animal.climbing ? 100 : 0, climbingText))}</div></section>`;
+}
+
+function setComparisonAnimal(position, animal) {
+  $(`compare${position}`).value = animal.id;
+  $(`compareSearch${position}`).value = animal.name;
+  renderComparison();
+}
+
 function renderComparison() {
   const a = byId.get($("compareA").value),
     b = byId.get($("compareB").value);
+  const profiles = $("comparisonProfiles");
   if (!a || !b) {
+    profiles.innerHTML = "";
     $("comparisonResult").className = "empty";
     $("comparisonResult").innerHTML =
       "<h2>Compare any two species</h2><p>Choose both animals to see a transparent compatibility verdict.</p>";
     return;
   }
   if (a.id === b.id) {
+    profiles.innerHTML = "";
     $("comparisonResult").className = "empty compact-empty";
     $("comparisonResult").innerHTML =
       "<h2>Choose two different species</h2><p>A species is always compatible with itself, so pick another animal for a useful comparison.</p>";
     return;
   }
   const r = E.compare(a, b, comparisonOptions());
+  profiles.innerHTML = `<div class="profile-grid">${animalProfile(a, "Animal A")}${animalProfile(b, "Animal B")}</div><p class="profile-note">Exact soil, grass, and rock terrain percentages are not in the source data. These bars are relative habitat-planning cues, not invented terrain ratios.</p>`;
   $("comparisonResult").className = `verdict verdict-${r.level.key}`;
   $("comparisonResult").innerHTML =
     `<span class="badge ${r.level.key}">${levelIcon(r.level.key)}${r.level.label}</span><h2>${r.score === 0 ? "Not recommended together" : r.score === 1 ? "Works with compromises" : "Compatible habitat partners"}</h2><p class="verdict-summary">${esc(r.summary)}</p><div class="reason-grid">
@@ -342,6 +386,8 @@ function updateAvailability() {
   );
   $("compareA").innerHTML = selectOptions("Choose animal A");
   $("compareB").innerHTML = selectOptions("Choose animal B");
+  $("compareSearchA").value = "";
+  $("compareSearchB").value = "";
   $("settingsButton").querySelector(".settings-label").textContent =
     welfareMode === "relaxed" ? "Relaxed plants" : "Full welfare";
   $("settingsButton").setAttribute(
@@ -349,6 +395,7 @@ function updateAvailability() {
     `Planning settings, ${welfareMode === "relaxed" ? "relaxed foliage" : "full welfare"} mode`,
   );
   if (selected) chooseAnimal(selected);
+  renderComparison();
   renderBuilder();
 }
 
@@ -374,10 +421,30 @@ setupAutocomplete(
   addToHabitat,
   (a) => habitat.some((x) => x.id === a.id),
 );
+setupAutocomplete(
+  $("compareSearchA"),
+  $("compareSuggestionsA"),
+  (animal) => setComparisonAnimal("A", animal),
+  () => false,
+  { clearOnPick: false },
+);
+setupAutocomplete(
+  $("compareSearchB"),
+  $("compareSuggestionsB"),
+  (animal) => setComparisonAnimal("B", animal),
+  () => false,
+  { clearOnPick: false },
+);
 $("compareA").innerHTML = selectOptions("Choose animal A");
 $("compareB").innerHTML = selectOptions("Choose animal B");
-$("compareA").addEventListener("change", renderComparison);
-$("compareB").addEventListener("change", renderComparison);
+$("compareA").addEventListener("change", (event) => {
+  $("compareSearchA").value = byId.get(event.target.value)?.name || "";
+  renderComparison();
+});
+$("compareB").addEventListener("change", (event) => {
+  $("compareSearchB").value = byId.get(event.target.value)?.name || "";
+  renderComparison();
+});
 $("builderChips").addEventListener("click", (e) => {
   const id = e.target.dataset.remove;
   if (id) {
