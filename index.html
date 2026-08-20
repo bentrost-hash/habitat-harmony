@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Habitat Harmony — Planet Zoo companion</title>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2310221d'/%3E%3Cpath d='M32 7l6 19 19 6-19 6-6 19-6-19-19-6 19-6z' fill='%23f2bd58'/%3E%3C/svg%3E"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#" aria-label="Habitat Harmony home"
+        ><span class="brand-mark" aria-hidden="true"
+          ><svg viewBox="0 0 32 32">
+            <path
+              d="M16 3c1 7 6 12 13 13-7 1-12 6-13 13-1-7-6-12-13-13 7-1 12-6 13-13Z"
+            />
+            <circle cx="16" cy="16" r="3" /></svg></span
+        ><span
+          ><strong>Habitat Harmony</strong
+          ><small>Planet Zoo companion</small></span
+        ></a
+      >
+      <div class="header-actions">
+        <div class="status">
+          <span aria-hidden="true"></span>Offline · 167 species
+        </div>
+        <button id="settingsButton" class="settings-button">
+          <svg aria-hidden="true" viewBox="0 0 24 24">
+            <path d="M12 15.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Z" />
+            <path
+              d="M19.4 15a1.7 1.7 0 0 0 .34 1.88l.06.06-2.83 2.83-.06-.06A1.7 1.7 0 0 0 15 19.4a1.7 1.7 0 0 0-1 .6 1.7 1.7 0 0 0-.4 1.1V21h-4v-.1A1.7 1.7 0 0 0 8.6 19.4a1.7 1.7 0 0 0-1.88.34l-.06.06-2.83-2.83.06-.06A1.7 1.7 0 0 0 4.6 15a1.7 1.7 0 0 0-.6-1 1.7 1.7 0 0 0-1.1-.4H3v-4h.1A1.7 1.7 0 0 0 4.6 8.6a1.7 1.7 0 0 0-.34-1.88l-.06-.06 2.83-2.83.06.06A1.7 1.7 0 0 0 9 4.6a1.7 1.7 0 0 0 1-.6 1.7 1.7 0 0 0 .4-1.1V3h4v.1A1.7 1.7 0 0 0 15.4 4a1.7 1.7 0 0 0 1.88-.34l.06-.06 2.83 2.83-.06.06A1.7 1.7 0 0 0 19.4 9c.1.4.3.8.6 1 .3.3.7.4 1.1.4h.1v4h-.1c-.4 0-.8.2-1.1.6Z"
+            /></svg
+          ><span class="settings-label">Full welfare</span>
+        </button>
+      </div>
+    </header>
+    <main>
+      <section class="hero">
+        <h1>What belongs in this <em>habitat?</em></h1>
+        <p class="intro">
+          Pick an animal to see safe, welfare-aware companions — ranked from
+          enrichment partners to compromises.
+        </p>
+        <div class="search-wrap">
+          <svg class="search-icon" aria-hidden="true" viewBox="0 0 24 24">
+            <circle cx="11" cy="11" r="7" />
+            <path d="m16 16 5 5" /></svg
+          ><input
+            id="animalSearch"
+            autocomplete="off"
+            placeholder="Search an animal — try “Giraffe”"
+            aria-label="Search animal"
+            aria-controls="suggestions"
+            aria-expanded="false"
+          />
+          <div id="suggestions" class="suggestions" role="listbox"></div>
+        </div>
+        <div class="quick">
+          <span>Popular:</span
+          ><button data-pick="reticulated_giraffe">Reticulated Giraffe</button
+          ><button data-pick="african_buffalo">African Buffalo</button
+          ><button data-pick="plains_zebra">Plains Zebra</button>
+        </div>
+      </section>
+      <section class="workspace">
+        <nav class="tabs">
+          <button class="tab active" data-tab="discover">
+            Discover partners</button
+          ><button class="tab" data-tab="compare">Compare two</button
+          ><button class="tab" data-tab="builder">
+            Habitat builder <span id="builderCount"></span>
+          </button>
+        </nav>
+        <div id="discover" class="panel active">
+          <div id="emptyState" class="empty">
+            <div class="empty-mark" aria-hidden="true">
+              <svg viewBox="0 0 48 48">
+                <path
+                  d="M24 42c-8 0-13-4-13-9 0-4 5-9 13-9s13 5 13 9c0 5-5 9-13 9Z"
+                />
+                <circle cx="10" cy="20" r="5" />
+                <circle cx="20" cy="11" r="5" />
+                <circle cx="38" cy="20" r="5" />
+                <circle cx="29" cy="11" r="5" />
+              </svg>
+            </div>
+            <h2>Choose your anchor animal</h2>
+            <p>Search above and get an immediate, practical shortlist.</p>
+          </div>
+          <div id="discoverResults" aria-live="polite"></div>
+        </div>
+        <div id="compare" class="panel">
+          <div class="comparison-controls">
+            <label>Animal A<select id="compareA"></select></label><span>+</span
+            ><label>Animal B<select id="compareB"></select></label>
+          </div>
+          <div id="comparisonResult" class="empty">
+            <h2>Compare any two species</h2>
+            <p>
+              Choose both animals to see a transparent compatibility verdict.
+            </p>
+          </div>
+        </div>
+        <div id="builder" class="panel">
+          <div class="builder-top">
+            <div>
+              <h2>Build a shared habitat</h2>
+              <p>Every species is checked against every other species.</p>
+            </div>
+            <div class="add-wrap">
+              <svg class="search-icon" aria-hidden="true" viewBox="0 0 24 24">
+                <circle cx="11" cy="11" r="7" />
+                <path d="m16 16 5 5" /></svg
+              ><input
+                id="builderSearch"
+                placeholder="Add species…"
+                autocomplete="off"
+                aria-label="Add species"
+                aria-controls="builderSuggestions"
+                aria-expanded="false"
+              />
+              <div
+                id="builderSuggestions"
+                class="suggestions"
+                role="listbox"
+              ></div>
+            </div>
+          </div>
+          <div id="builderChips" class="chips"></div>
+          <div id="builderResult" class="empty" aria-live="polite">
+            <h2>Add two or more animals</h2>
+            <p>
+              We’ll calculate the group verdict and the habitat requirements
+              they can share.
+            </p>
+          </div>
+          <div id="nextSpecies"></div>
+          <div class="plan-actions">
+            <input
+              id="planName"
+              aria-label="Habitat plan name"
+              placeholder="Name this habitat plan"
+            /><button id="savePlan">Save locally</button
+            ><button id="sharePlan" class="secondary">Copy share link</button
+            ><span id="planMessage" role="status"></span>
+          </div>
+          <div id="savedPlans" class="saved-plans"></div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      Community data, normalized for offline use. Results are a planning aid;
+      check the in-game Zoopedia after updates.
+    </footer>
+    <dialog id="settingsDialog">
+      <form method="dialog">
+        <div class="dialog-head">
+          <div>
+            <h2>Planning settings</h2>
+            <p>Saved only in this browser.</p>
+          </div>
+          <button class="icon-button" aria-label="Close">
+            <svg aria-hidden="true" viewBox="0 0 24 24">
+              <path d="m6 6 12 12M18 6 6 18" />
+            </svg>
+          </button>
+        </div>
+        <fieldset class="mode-settings">
+          <legend>Welfare mode</legend>
+          <label
+            ><input type="radio" name="welfareMode" value="strict" />
+            <span
+              ><strong>Full welfare</strong
+              ><small
+                >Franchise, Career, Challenge, or unchanged Sandbox
+                settings.</small
+              ></span
+            ></label
+          ><label
+            ><input type="radio" name="welfareMode" value="relaxed" />
+            <span
+              ><strong>Relaxed foliage</strong
+              ><small
+                >Sandbox with plant-origin preferences disabled; compatible
+                regional mismatches can reach full welfare.</small
+              ></span
+            ></label
+          >
+        </fieldset>
+        <div class="dialog-section-head">
+          <h3>Owned DLC</h3>
+          <div class="dialog-actions">
+            <button id="selectAllPacks" type="button">Select all</button
+            ><button id="clearPacks" type="button" class="secondary">
+              Clear all
+            </button>
+          </div>
+        </div>
+        <div id="packList" class="pack-list"></div>
+      </form>
+    </dialog>
+    <script src="data/animals.js"></script>
+    <script src="engine.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

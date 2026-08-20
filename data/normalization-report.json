@@ -1,0 +1,35 @@
+{
+  "sourceDirectionalPairs": [
+    {
+      "pair": [
+        "african_leopard",
+        "galapagos_giant_tortoise"
+      ],
+      "ratings": [
+        0,
+        1
+      ]
+    },
+    {
+      "pair": [
+        "bush_dog",
+        "galapagos_giant_tortoise"
+      ],
+      "ratings": [
+        0,
+        1
+      ]
+    },
+    {
+      "pair": [
+        "coyote",
+        "galapagos_giant_tortoise"
+      ],
+      "ratings": [
+        0,
+        1
+      ]
+    }
+  ],
+  "note": "Canonical pair score uses the more restrictive source rating."
+}

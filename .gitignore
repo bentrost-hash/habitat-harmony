@@ -1,0 +1,6 @@
+# Downloaded upstream source workbook; do not redistribute without the author's permission.
+source-data.xlsx
+
+# Local editor and OS state
+.DS_Store
+Thumbs.db
