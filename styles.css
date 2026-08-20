@@ -493,6 +493,80 @@ input::placeholder {
   color: var(--muted);
   font-size: 0.75rem;
 }
+.animal-heading {
+  align-self: flex-start;
+}
+.habitat-snapshot {
+  width: min(510px, 45vw);
+  padding-left: 32px;
+  border-left: 1px solid var(--line);
+}
+.snapshot-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+.snapshot-heading h3 {
+  margin: 0 0 5px;
+  color: var(--text);
+  font-size: 1rem;
+  letter-spacing: 0;
+}
+.snapshot-heading p {
+  margin: 0;
+  color: var(--faint);
+  font-size: 0.68rem;
+}
+.snapshot-heading .match-count {
+  gap: 6px;
+}
+.snapshot-heading .match-count strong {
+  font-size: 2.2rem;
+}
+.snapshot-heading .match-count span {
+  font-size: 0.66rem;
+}
+.snapshot-range {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+.snapshot-range > span {
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-weight: 800;
+}
+.snapshot-range-row {
+  display: grid;
+  grid-template-columns: 76px 1fr;
+  align-items: center;
+  gap: 10px;
+}
+.snapshot-range-row small {
+  color: var(--faint);
+  font-size: 0.65rem;
+  font-weight: 750;
+}
+.snapshot-range-row > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.snapshot-range-row em {
+  padding: 3px 8px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--muted);
+  font-size: 0.67rem;
+  font-style: normal;
+  font-weight: 700;
+}
+.snapshot-bars {
+  padding-top: 17px;
+  border-top: 1px solid var(--line);
+}
 .result-section {
   margin: 0 0 40px;
 }
@@ -1202,6 +1276,15 @@ dialog form {
     align-items: flex-start;
     flex-direction: column;
     margin-bottom: 34px;
+  }
+  .animal-heading {
+    align-self: stretch;
+  }
+  .habitat-snapshot {
+    width: 100%;
+    padding: 24px 0 0;
+    border-top: 1px solid var(--line);
+    border-left: 0;
   }
   .match-count strong {
     font-size: 2.2rem;

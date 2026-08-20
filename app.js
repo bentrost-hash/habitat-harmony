@@ -173,8 +173,9 @@ function chooseAnimal(animal) {
         : `<section class="result-section"><h3 class="section-title">${heading}</h3>${content}</section>`;
     })
     .join("");
+  const excellentMatches = results.filter((r) => r.score >= 3).length;
   $("discoverResults").innerHTML =
-    `<div class="animal-header"><div><h2>${esc(animal.name)}</h2><p class="meta">${esc(animal.dlc)} · ${esc(animal.continents.join(", "))} · ${esc(animal.biomes.join(", "))}</p><p class="mode-note">${welfareMode === "relaxed" ? "Relaxed foliage mode" : "Full-welfare mode"}</p></div><span class="match-count"><strong>${results.filter((r) => r.score >= 3).length}</strong><span>excellent matches</span></span></div>${sections}`;
+    `<div class="animal-header"><div class="animal-heading"><h2>${esc(animal.name)}</h2><p class="meta">${esc(animal.dlc)} · ${esc(animal.continents.join(", "))}</p><p class="mode-note">${welfareMode === "relaxed" ? "Relaxed foliage mode" : "Full-welfare mode"}</p></div>${habitatSnapshot(animal, excellentMatches)}</div>${sections}`;
   $("emptyState").style.display = "none";
   setTab("discover");
 }
@@ -212,6 +213,18 @@ function animalProfile(animal, position) {
   const climbingText = animal.climbing ? "Climbing required" : "Not required";
   const land = Math.round(animal.familyLandRequirement).toLocaleString();
   return `<section class="animal-profile"><header class="profile-head"><div><h3>${esc(animal.name)}</h3><p>${esc(position)} · ${esc(animal.dlc)}</p></div><span class="profile-origin">${esc(animal.continents.join(", "))}</span></header><div class="profile-biomes"><span>Preferred biomes</span><div>${animal.biomes.map((biome) => `<em>${esc(biome)}</em>`).join("")}</div></div><div class="profile-rows">${profileRow("Temperature", tempText(animal.temperature), temperatureBar(animal.temperature))}${profileRow("Family habitat baseline", `${land} m²`, bar((animal.familyLandRequirement / maxFamilyLand) * 100, `Relative family habitat baseline: ${land} square metres`))}${profileRow("Water", waterText, bar(waterLevel, waterText))}${profileRow("Climbing", climbingText, bar(animal.climbing ? 100 : 0, climbingText))}</div></section>`;
+}
+
+function habitatSnapshot(animal, excellentMatches) {
+  const waterLevel = animal.water.deepDiver ? 100 : animal.water.canSwim ? 58 : 0;
+  const waterText = animal.water.deepDiver
+    ? "Deep water required"
+    : animal.water.canSwim
+      ? "Swimming access"
+      : "No water requirement";
+  const climbingText = animal.climbing ? "Climbing required" : "Not required";
+  const land = Math.round(animal.familyLandRequirement).toLocaleString();
+  return `<aside class="habitat-snapshot" aria-label="${esc(animal.name)} habitat snapshot"><div class="snapshot-heading"><div><h3>Habitat snapshot</h3><p>Preferred habitat and care needs</p></div><span class="match-count"><strong>${excellentMatches}</strong><span>excellent matches</span></span></div><div class="snapshot-range"><span>Ideal plant range</span><div class="snapshot-range-row"><small>Continents</small><div>${animal.continents.map((continent) => `<em>${esc(continent)}</em>`).join("")}</div></div><div class="snapshot-range-row"><small>Biomes</small><div>${animal.biomes.map((biome) => `<em>${esc(biome)}</em>`).join("")}</div></div></div><div class="profile-rows snapshot-bars">${profileRow("Temperature", tempText(animal.temperature), temperatureBar(animal.temperature))}${profileRow("Family habitat baseline", `${land} m²`, bar((animal.familyLandRequirement / maxFamilyLand) * 100, `Relative family habitat baseline: ${land} square metres`))}${profileRow("Water", waterText, bar(waterLevel, waterText))}${profileRow("Climbing", climbingText, bar(animal.climbing ? 100 : 0, climbingText))}</div></aside>`;
 }
 
 function setComparisonAnimal(position, animal) {
