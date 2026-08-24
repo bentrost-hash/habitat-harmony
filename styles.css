@@ -1101,21 +1101,28 @@ footer {
   font-size: 0.7rem;
 }
 .footer-attribution,
+.footer-meta,
 .footer-disclaimer {
   margin: 0;
 }
 .footer-attribution {
-  line-height: 1.8;
+  max-width: 70ch;
+  color: var(--muted);
+  font-size: 0.82rem;
+  line-height: 1.65;
 }
 .footer-attribution a {
-  color: var(--muted);
-  text-decoration-color: rgba(183, 200, 185, 0.55);
+  color: var(--gold-bright);
+  text-decoration-color: rgba(255, 215, 131, 0.55);
   text-decoration-thickness: 1px;
   text-underline-offset: 0.18em;
 }
 .footer-attribution a:hover {
-  color: var(--gold-bright);
+  color: var(--text);
   text-decoration-color: currentColor;
+}
+.footer-meta {
+  margin-top: 8px;
 }
 .footer-disclaimer {
   margin-top: 5px;
