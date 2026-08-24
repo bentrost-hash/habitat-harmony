@@ -1100,6 +1100,27 @@ footer {
   color: var(--faint);
   font-size: 0.7rem;
 }
+.footer-attribution,
+.footer-disclaimer {
+  margin: 0;
+}
+.footer-attribution {
+  line-height: 1.8;
+}
+.footer-attribution a {
+  color: var(--muted);
+  text-decoration-color: rgba(183, 200, 185, 0.55);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+}
+.footer-attribution a:hover {
+  color: var(--gold-bright);
+  text-decoration-color: currentColor;
+}
+.footer-disclaimer {
+  margin-top: 5px;
+  color: var(--faint);
+}
 dialog {
   width: min(680px, calc(100% - 32px));
   max-height: min(780px, calc(100vh - 40px));
