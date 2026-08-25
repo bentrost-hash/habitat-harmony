@@ -199,7 +199,7 @@ function temperatureBar(range) {
   return `<span class="profile-bar temperature-bar" role="img" aria-label="Comfortable temperature ${tempText(range)}"><span style="--range-start:${start}%;--range-width:${end - start}%"></span></span>`;
 }
 
-function profileRow(label, value, visual) {
+function profileRow(label, value, visual = "") {
   return `<div class="profile-row"><div><span>${esc(label)}</span><strong>${esc(value)}</strong></div>${visual}</div>`;
 }
 
@@ -211,8 +211,10 @@ function animalProfile(animal, position) {
       ? "Swimming access"
       : "No water requirement";
   const climbingText = animal.climbing ? "Climbing required" : "Not required";
+  const barrierText = `${animal.barrier.height} m · Grade ${animal.barrier.grade}`;
+  const walkthroughText = animal.walkthroughSafe ? "Suitable" : "Not suitable";
   const land = Math.round(animal.familyLandRequirement).toLocaleString();
-  return `<section class="animal-profile"><header class="profile-head"><div><h3>${esc(animal.name)}</h3><p>${esc(position)} · ${esc(animal.dlc)}</p></div><span class="profile-origin">${esc(animal.continents.join(", "))}</span></header><div class="profile-biomes"><span>Preferred biomes</span><div>${animal.biomes.map((biome) => `<em>${esc(biome)}</em>`).join("")}</div></div><div class="profile-rows">${profileRow("Temperature", tempText(animal.temperature), temperatureBar(animal.temperature))}${profileRow("Family habitat baseline", `${land} m²`, bar((animal.familyLandRequirement / maxFamilyLand) * 100, `Relative family habitat baseline: ${land} square metres`))}${profileRow("Water", waterText, bar(waterLevel, waterText))}${profileRow("Climbing", climbingText, bar(animal.climbing ? 100 : 0, climbingText))}</div></section>`;
+  return `<section class="animal-profile"><header class="profile-head"><div><h3>${esc(animal.name)}</h3><p>${esc(position)} · ${esc(animal.dlc)}</p></div><span class="profile-origin">${esc(animal.continents.join(", "))}</span></header><div class="profile-biomes"><span>Preferred biomes</span><div>${animal.biomes.map((biome) => `<em>${esc(biome)}</em>`).join("")}</div></div><div class="profile-rows">${profileRow("Temperature", tempText(animal.temperature), temperatureBar(animal.temperature))}${profileRow("Family habitat baseline", `${land} m²`, bar((animal.familyLandRequirement / maxFamilyLand) * 100, `Relative family habitat baseline: ${land} square metres`))}${profileRow("Barrier", barrierText)}${profileRow("Water", waterText, bar(waterLevel, waterText))}${profileRow("Climbing", climbingText, bar(animal.climbing ? 100 : 0, climbingText))}${profileRow("Walkthrough", walkthroughText)}</div></section>`;
 }
 
 function habitatSnapshot(animal, excellentMatches) {
@@ -223,8 +225,10 @@ function habitatSnapshot(animal, excellentMatches) {
       ? "Swimming access"
       : "No water requirement";
   const climbingText = animal.climbing ? "Climbing required" : "Not required";
+  const barrierText = `${animal.barrier.height} m · Grade ${animal.barrier.grade}`;
+  const walkthroughText = animal.walkthroughSafe ? "Suitable" : "Not suitable";
   const land = Math.round(animal.familyLandRequirement).toLocaleString();
-  return `<aside class="habitat-snapshot" aria-label="${esc(animal.name)} habitat snapshot"><div class="snapshot-heading"><div><h3>Habitat snapshot</h3><p>Preferred habitat and care needs</p></div><span class="match-count"><strong>${excellentMatches}</strong><span>excellent matches</span></span></div><div class="snapshot-range"><span>Ideal plant range</span><div class="snapshot-range-row"><small>Continents</small><div>${animal.continents.map((continent) => `<em>${esc(continent)}</em>`).join("")}</div></div><div class="snapshot-range-row"><small>Biomes</small><div>${animal.biomes.map((biome) => `<em>${esc(biome)}</em>`).join("")}</div></div></div><div class="profile-rows snapshot-bars">${profileRow("Temperature", tempText(animal.temperature), temperatureBar(animal.temperature))}${profileRow("Family habitat baseline", `${land} m²`, bar((animal.familyLandRequirement / maxFamilyLand) * 100, `Relative family habitat baseline: ${land} square metres`))}${profileRow("Water", waterText, bar(waterLevel, waterText))}${profileRow("Climbing", climbingText, bar(animal.climbing ? 100 : 0, climbingText))}</div></aside>`;
+  return `<aside class="habitat-snapshot" aria-label="${esc(animal.name)} habitat snapshot"><div class="snapshot-heading"><div><h3>Habitat snapshot</h3><p>Preferred habitat and care needs</p></div><span class="match-count"><strong>${excellentMatches}</strong><span>excellent matches</span></span></div><div class="snapshot-range"><span>Ideal plant range</span><div class="snapshot-range-row"><small>Continents</small><div>${animal.continents.map((continent) => `<em>${esc(continent)}</em>`).join("")}</div></div><div class="snapshot-range-row"><small>Biomes</small><div>${animal.biomes.map((biome) => `<em>${esc(biome)}</em>`).join("")}</div></div></div><div class="profile-rows snapshot-bars">${profileRow("Temperature", tempText(animal.temperature), temperatureBar(animal.temperature))}${profileRow("Family habitat baseline", `${land} m²`, bar((animal.familyLandRequirement / maxFamilyLand) * 100, `Relative family habitat baseline: ${land} square metres`))}${profileRow("Barrier", barrierText)}${profileRow("Water", waterText, bar(waterLevel, waterText))}${profileRow("Climbing", climbingText, bar(animal.climbing ? 100 : 0, climbingText))}${profileRow("Walkthrough", walkthroughText)}</div></aside>`;
 }
 
 function setComparisonAnimal(position, animal) {
@@ -296,7 +300,7 @@ function renderBuilder() {
     )
     .join("");
   target.className = `verdict verdict-${g.level.key}`;
-  target.innerHTML = `<span class="badge ${g.level.key}">${levelIcon(g.level.key)}${g.level.label}</span><h2>Overall habitat compatibility</h2><p class="verdict-summary">Based on all ${g.pairs.length} pairwise relationships — the most restrictive pair sets the verdict.</p>${issues ? `<div class="conflicts">${issues}</div>` : ""}<div class="intersection"><h3>Shared habitat requirements</h3><dl><dt>Temperature</dt><dd>${tempText(g.temperature)}</dd><dt>Biomes</dt><dd>${g.sharedBiomes.length ? esc(g.sharedBiomes.join(", ")) : "No biome shared by every species"}</dd><dt>Origin</dt><dd>${g.sharedContinents.length ? esc(g.sharedContinents.join(", ")) : "Mixed regions"}</dd><dt>Land baseline</dt><dd>At least ${Math.round(g.minimumLandBaseline).toLocaleString()} m² (largest family-group minimum; add space for larger populations)</dd><dt>Climbing</dt><dd>${g.climbing ? "Required by at least one species" : "Not required"}</dd><dt>Deep water</dt><dd>${g.deepWater ? "Required by at least one species" : "Not required"}</dd></dl></div>`;
+  target.innerHTML = `<span class="badge ${g.level.key}">${levelIcon(g.level.key)}${g.level.label}</span><h2>Overall habitat compatibility</h2><p class="verdict-summary">Based on all ${g.pairs.length} pairwise relationships — the most restrictive pair sets the verdict.</p>${issues ? `<div class="conflicts">${issues}</div>` : ""}<div class="intersection"><h3>Shared habitat requirements</h3><dl><dt>Temperature</dt><dd>${tempText(g.temperature)}</dd><dt>Biomes</dt><dd>${g.sharedBiomes.length ? esc(g.sharedBiomes.join(", ")) : "No biome shared by every species"}</dd><dt>Origin</dt><dd>${g.sharedContinents.length ? esc(g.sharedContinents.join(", ")) : "Mixed regions"}</dd><dt>Land baseline</dt><dd>At least ${Math.round(g.minimumLandBaseline).toLocaleString()} m² (largest family-group minimum; add space for larger populations)</dd><dt>Barrier</dt><dd>At least ${g.minimumBarrierHeight} m · Grade ${g.minimumBarrierGrade} (highest species requirement)</dd><dt>Swimming</dt><dd>${g.deepWater ? "Deep water required by at least one species" : g.swimming ? "Swimming access for at least one species" : "No swimming requirement"}</dd><dt>Climbing</dt><dd>${g.climbing ? "Required by at least one species" : "Not required"}</dd><dt>Walkthrough</dt><dd>${g.walkthroughSafe ? "Suitable for every selected species" : "Not suitable for every selected species"}</dd></dl></div>`;
   renderNextSpecies();
   renderSavedPlans();
 }

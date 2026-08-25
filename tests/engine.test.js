@@ -22,6 +22,11 @@ const savannah = engine.buildGroup([
 ]);
 assert.equal(savannah.conflicts.length, 0, "all pairs in compatible group pass");
 assert.equal(savannah.temperature.valid, true, "group temperature intersects");
+assert.equal(savannah.minimumBarrierHeight, 2, "group uses the highest barrier height");
+assert.equal(savannah.minimumBarrierGrade, 3, "group uses the highest barrier grade");
+assert.equal(savannah.swimming, true, "group reports swimming access when a species can swim");
+assert.equal(savannah.deepWater, false, "group distinguishes swimming access from deep-water needs");
+assert.equal(savannah.walkthroughSafe, false, "group requires every species to be walkthrough-safe");
 
 const unsafe = engine.buildGroup([
   byId.get("reticulated_giraffe"), byId.get("plains_zebra"), byId.get("bengal_tiger")
