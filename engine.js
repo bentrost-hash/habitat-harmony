@@ -71,7 +71,11 @@
       sharedBiomes: common(animals.map(a => a.biomes)),
       sharedContinents: common(animals.map(a => a.continents)),
       minimumLandBaseline: animals.length ? Math.max(...animals.map(a => a.familyLandRequirement || a.landRequirement || 0)) : 0,
-      climbing: animals.some(a => a.climbing), deepWater: animals.some(a => a.water.deepDiver)
+      minimumBarrierHeight: animals.length ? Math.max(...animals.map(a => a.barrier.height)) : 0,
+      minimumBarrierGrade: animals.length ? Math.max(...animals.map(a => a.barrier.grade)) : 0,
+      climbing: animals.some(a => a.climbing),
+      swimming: animals.some(a => a.water.canSwim), deepWater: animals.some(a => a.water.deepDiver),
+      walkthroughSafe: animals.every(a => a.walkthroughSafe)
     };
   }
 
