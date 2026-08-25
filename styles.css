@@ -946,10 +946,9 @@ details[open] > .partner-list {
   margin-bottom: 0;
 }
 .chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  min-height: 36px;
+  display: grid;
+  gap: 0;
+  min-height: 48px;
   margin-bottom: 22px;
 }
 .chip {
@@ -981,6 +980,77 @@ details[open] > .partner-list {
 .icon-button:hover {
   background: rgba(255, 255, 255, 0.08);
   color: var(--text);
+}
+.population-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 20px;
+  padding: 12px 0;
+  border-top: 1px solid var(--line);
+}
+.population-row:last-child {
+  border-bottom: 1px solid var(--line);
+}
+.population-species {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  gap: 8px;
+}
+.population-species > span {
+  display: block;
+  min-width: 0;
+}
+.population-species strong,
+.population-species small {
+  display: block;
+}
+.population-species strong {
+  color: var(--text);
+  font-size: 0.78rem;
+}
+.population-species small {
+  margin-top: 2px;
+  color: var(--faint);
+  font-size: 0.66rem;
+}
+.population-remove {
+  display: grid;
+  flex: 0 0 auto;
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  place-items: center;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--faint);
+}
+.population-remove:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text);
+}
+.population-controls {
+  display: flex;
+  gap: 8px;
+}
+.population-controls label {
+  display: grid;
+  gap: 3px;
+  color: var(--faint);
+  font-size: 0.62rem;
+  font-weight: 750;
+}
+.population-controls input {
+  width: 72px;
+  min-height: 40px;
+  padding: 6px 8px;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--r-sm);
+  background: var(--surface);
+  text-align: center;
+  font-variant-numeric: tabular-nums;
 }
 .conflicts {
   margin: 22px 0 30px;
@@ -1342,6 +1412,20 @@ dialog form {
   }
   .comparison-controls > span {
     display: none;
+  }
+  .population-row {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  .population-species {
+    justify-content: space-between;
+  }
+  .population-controls label {
+    flex: 1;
+  }
+  .population-controls input {
+    width: 100%;
+    min-height: 44px;
   }
   .verdict {
     padding: 24px 18px;

@@ -28,6 +28,24 @@ assert.equal(savannah.swimming, true, "group reports swimming access when a spec
 assert.equal(savannah.deepWater, false, "group distinguishes swimming access from deep-water needs");
 assert.equal(savannah.walkthroughSafe, false, "group requires every species to be walkthrough-safe");
 
+const populated = engine.buildGroup([
+  byId.get("reticulated_giraffe"), byId.get("plains_zebra")
+], {population: {
+  reticulated_giraffe: {adults: 3, young: 2},
+  plains_zebra: {adults: 4, young: 1}
+}});
+assert.equal(populated.totalAdults, 7, "population planner totals adults");
+assert.equal(populated.totalYoung, 3, "population planner tracks young");
+assert.equal(populated.countAdjustedLand, 5958, "adult land estimate uses selected counts");
+assert.equal(populated.populationWarnings.length, 0, "in-range adult groups pass");
+
+const outOfRange = engine.buildGroup([
+  byId.get("reticulated_giraffe"), byId.get("plains_zebra")
+], {population: {
+  reticulated_giraffe: {adults: 13, young: 0},
+  plains_zebra: {adults: 4, young: 0}
+}});
+assert.equal(outOfRange.populationWarnings.length, 1, "out-of-range adult groups are flagged");
 const unsafe = engine.buildGroup([
   byId.get("reticulated_giraffe"), byId.get("plains_zebra"), byId.get("bengal_tiger")
 ]);

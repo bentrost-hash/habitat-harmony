@@ -64,13 +64,33 @@
       for (let j = i + 1; j < animals.length; j++) pairs.push(compare(animals[i], animals[j], options));
     const worst = pairs.length ? Math.min(...pairs.map(p => p.score)) : null;
     const verdictScore = worst === 4 ? 3 : worst;
+    const population = animals.map(a => {
+      const requested = options.population?.[a.id] || {};
+      const adults = Math.max(1, Math.floor(Number(requested.adults) || a.adultGroup?.min || 1));
+      const young = Math.max(0, Math.floor(Number(requested.young) || 0));
+      return {
+        id: a.id, adults, young,
+        withinAdultGroup: !a.adultGroup || (adults >= a.adultGroup.min && adults <= a.adultGroup.max)
+      };
+    });
+    const minimumLandBaseline = animals.length
+      ? Math.max(...animals.map(a => a.familyLandRequirement || a.landRequirement || 0)) : 0;
+    const adultLandEstimate = population.reduce((total, item) => {
+      const animal = animals.find(a => a.id === item.id);
+      return total + item.adults * (animal?.landRequirement || 0);
+    }, 0);
     return {
       animals, pairs, score: verdictScore, level: verdictScore === null ? null : LEVELS[verdictScore],
       conflicts: pairs.filter(p => p.score === 0), compromises: pairs.filter(p => p.score === 1),
       temperature: intersectRange(animals.map(a => a.temperature)),
       sharedBiomes: common(animals.map(a => a.biomes)),
       sharedContinents: common(animals.map(a => a.continents)),
-      minimumLandBaseline: animals.length ? Math.max(...animals.map(a => a.familyLandRequirement || a.landRequirement || 0)) : 0,
+      minimumLandBaseline,
+      countAdjustedLand: Math.max(minimumLandBaseline, adultLandEstimate),
+      totalAdults: population.reduce((total, item) => total + item.adults, 0),
+      totalYoung: population.reduce((total, item) => total + item.young, 0),
+      population,
+      populationWarnings: population.filter(item => !item.withinAdultGroup),
       minimumBarrierHeight: animals.length ? Math.max(...animals.map(a => a.barrier.height)) : 0,
       minimumBarrierGrade: animals.length ? Math.max(...animals.map(a => a.barrier.grade)) : 0,
       climbing: animals.some(a => a.climbing),
