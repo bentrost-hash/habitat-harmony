@@ -8,6 +8,7 @@ The app never reads the workbook; this is a deliberate, offline build step.
 import json
 import re
 import sys
+from datetime import datetime
 from pathlib import Path
 
 import openpyxl
@@ -38,6 +39,17 @@ def temperature(value):
     return {"min": float(numbers[0]), "max": float(numbers[1])}
 
 
+def adult_group(value):
+    if isinstance(value, datetime):
+        return {"min": value.day, "max": value.month}
+    numbers = [int(item) for item in re.findall(r"\d+", str(value or ""))]
+    if len(numbers) == 2:
+        return {"min": numbers[0], "max": numbers[1]}
+    if len(numbers) == 1:
+        return {"min": numbers[0], "max": numbers[0]}
+    return None
+
+
 def main(source, destination):
     book = openpyxl.load_workbook(source, read_only=True, data_only=True)
     habitat = book["Habitat Animals Data"]
@@ -55,6 +67,7 @@ def main(source, destination):
             "temperature": temperature(row[14]),
             "landRequirement": row[11] if isinstance(row[11], (int, float)) else None,
             "familyLandRequirement": row[12] if isinstance(row[12], (int, float)) else None,
+            "adultGroup": adult_group(row[13]),
             "barrier": {"height": row[15], "grade": row[16]},
             "climbing": clean(row[23]) == "Y",
             "water": {"canSwim": clean(row[24]) == "Y", "deepDiver": clean(row[25]) == "Y"},

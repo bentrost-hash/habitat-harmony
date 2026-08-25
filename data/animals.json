@@ -20,6 +20,10 @@
       },
       "landRequirement": 330.0,
       "familyLandRequirement": 450.0,
+      "adultGroup": {
+        "min": 1,
+        "max": 2
+      },
       "barrier": {
         "height": 0.5,
         "grade": 2.0
@@ -208,6 +212,10 @@
       },
       "landRequirement": 325.0,
       "familyLandRequirement": 415.0,
+      "adultGroup": {
+        "min": 2,
+        "max": 25
+      },
       "barrier": {
         "height": 1.25,
         "grade": 2.0
@@ -401,6 +409,10 @@
       },
       "landRequirement": 440,
       "familyLandRequirement": 790,
+      "adultGroup": {
+        "min": 3,
+        "max": 15
+      },
       "barrier": {
         "height": 1.25,
         "grade": 3.0
@@ -601,6 +613,10 @@
       },
       "landRequirement": 310.0,
       "familyLandRequirement": 668.0,
+      "adultGroup": {
+        "min": 1,
+        "max": 6
+      },
       "barrier": {
         "height": 1.0,
         "grade": 1.0
@@ -788,6 +804,10 @@
       },
       "landRequirement": 705.0,
       "familyLandRequirement": 870.0,
+      "adultGroup": {
+        "min": 1,
+        "max": 2
+      },
       "barrier": {
         "height": 3.0,
         "grade": 3.0
@@ -975,6 +995,10 @@
       },
       "landRequirement": 315,
       "familyLandRequirement": 355,
+      "adultGroup": {
+        "min": 6,
+        "max": 500
+      },
       "barrier": {
         "height": 1.5,
         "grade": 2.0
@@ -1163,6 +1187,10 @@
       },
       "landRequirement": 2299,
       "familyLandRequirement": 4893,
+      "adultGroup": {
+        "min": 3,
+        "max": 15
+      },
       "barrier": {
         "height": 2.0,
         "grade": 4.0
@@ -1352,6 +1380,10 @@
       },
       "landRequirement": 215.0,
       "familyLandRequirement": 233.0,
+      "adultGroup": {
+        "min": 1,
+        "max": 8
+      },
       "barrier": {
         "height": 1.0,
         "grade": 1.0
@@ -1541,6 +1573,10 @@
       },
       "landRequirement": 1162.0,
       "familyLandRequirement": 1346.0,
+      "adultGroup": {
+        "min": 2,
+        "max": 27
+      },
       "barrier": {
         "height": 1.25,
         "grade": 2.0
@@ -1727,6 +1763,10 @@
       },
       "landRequirement": 230.0,
       "familyLandRequirement": 260.0,
+      "adultGroup": {
+        "min": 1,
+        "max": 4
+      },
       "barrier": {
         "height": 0.5,
         "grade": 1.0
@@ -1914,6 +1954,10 @@
       },
       "landRequirement": 325.0,
       "familyLandRequirement": 448.0,
+      "adultGroup": {
+        "min": 3,
+        "max": 40
+      },
       "barrier": {
         "height": 1.25,
         "grade": 2.0
@@ -2107,6 +2151,10 @@
       },
       "landRequirement": 390.0,
       "familyLandRequirement": 465.0,
+      "adultGroup": {
+        "min": 2,
+        "max": 30
+      },
       "barrier": {
         "height": 1.25,
         "grade": 2.0
@@ -2296,6 +2344,10 @@
       },
       "landRequirement": 390.0,
       "familyLandRequirement": 510.0,
+      "adultGroup": {
+        "min": 2,
+        "max": 20
+      },
       "barrier": {
         "height": 1.25,
         "grade": 2.0
@@ -2483,6 +2535,10 @@
       },
       "landRequirement": 420,
       "familyLandRequirement": 948,
+      "adultGroup": {
+        "min": 1,
+        "max": 6
+      },
       "barrier": {
         "height": 1.0,
         "grade": 2.0
@@ -2670,6 +2726,10 @@
       },
       "landRequirement": 420.0,
       "familyLandRequirement": 735.0,
+      "adultGroup": {
+        "min": 3,
+        "max": 15
+      },
       "barrier": {
         "height": 1.25,
         "grade": 3.0
@@ -2865,6 +2925,10 @@
       },
       "landRequirement": 425.0,
       "familyLandRequirement": 929.0,
+      "adultGroup": {
+        "min": 20,
+        "max": 500
+      },
       "barrier": {
         "height": 1.0,
         "grade": 1.0
@@ -3053,6 +3117,10 @@
       },
       "landRequirement": 500.0,
       "familyLandRequirement": 950.0,
+      "adultGroup": {
+        "min": 1,
+        "max": 6
+      },
       "barrier": {
         "height": 1.25,
         "grade": 3.0
@@ -3242,6 +3310,10 @@
       },
       "landRequirement": 705.0,
       "familyLandRequirement": 927.0,
+      "adultGroup": {
+        "min": 1,
+        "max": 2
+      },
       "barrier": {
         "height": 3.0,
         "grade": 3.0
@@ -3431,6 +3503,10 @@
       },
       "landRequirement": 200.0,
       "familyLandRequirement": 264.0,
+      "adultGroup": {
+        "min": 1,
+        "max": 8
+      },
       "barrier": {
         "height": 1.25,
         "grade": 2.0
@@ -3618,6 +3694,10 @@
       },
       "landRequirement": 1162.0,
       "familyLandRequirement": 1346.0,
+      "adultGroup": {
+        "min": 2,
+        "max": 8
+      },
       "barrier": {
         "height": 1.25,
         "grade": 2.0
@@ -3806,6 +3886,10 @@
       },
       "landRequirement": 294,
       "familyLandRequirement": 378,
+      "adultGroup": {
+        "min": 2,
+        "max": 16
+      },
       "barrier": {
         "height": 1.0,
         "grade": 2.0
@@ -3839,6 +3923,10 @@
       },
       "landRequirement": 355.0,
       "familyLandRequirement": 465.0,
+      "adultGroup": {
+        "min": 1,
+        "max": 2
+      },
       "barrier": {
         "height": 1.0,
         "grade": 2.0
@@ -4026,6 +4114,10 @@
       },
       "landRequirement": 650.0,
       "familyLandRequirement": 850.0,
+      "adultGroup": {
+        "min": 2,
+        "max": 11
+      },
       "barrier": {
         "height": 1.25,
         "grade": 2.0
@@ -4216,6 +4308,10 @@
       },
       "landRequirement": 467,
       "familyLandRequirement": 617,
+      "adultGroup": {
+        "min": 1,
+        "max": 2
+      },
       "barrier": {
         "height": 1.0,
         "grade": 2.0
@@ -4249,6 +4345,10 @@
       },
       "landRequirement": 705.0,
       "familyLandRequirement": 927.0,
+      "adultGroup": {
+        "min": 1,
+        "max": 2
+      },
       "barrier": {
         "height": 3.0,
         "grade": 3.0
@@ -4437,6 +4537,10 @@
       },
       "landRequirement": 390.0,
       "familyLandRequirement": 600.0,
+      "adultGroup": {
+        "min": 3,
+        "max": 10
+      },
       "barrier": {
         "height": 1.25,
         "grade": 2.0
@@ -4629,6 +4733,10 @@
       },
       "landRequirement": 182.0,
       "familyLandRequirement": 218.0,
+      "adultGroup": {
+        "min": 2,
+        "max": 5
+      },
       "barrier": {
         "height": 3.0,
         "grade": 2.0
@@ -4818,6 +4926,10 @@
       },
       "landRequirement": 1000.0,
       "familyLandRequirement": 2000.0,
+      "adultGroup": {
+        "min": 1,
+        "max": 3
+      },
       "barrier": {
         "height": 2.0,
         "grade": 4.0
@@ -5004,6 +5116,10 @@
       },
       "landRequirement": 430.0,
       "familyLandRequirement": 790.0,
+      "adultGroup": {
+        "min": 7,
+        "max": 32
+      },
       "barrier": {
         "height": 1.25,
         "grade": 2.0
@@ -5201,6 +5317,10 @@
       },
       "landRequirement": 210.0,
       "familyLandRequirement": 226.0,
+      "adultGroup": {
+        "min": 2,
+        "max": 16
+      },
       "barrier": {
         "height": 1.25,
         "grade": 1.0
@@ -5233,6 +5353,10 @@
       },
       "landRequirement": 180.0,
       "familyLandRequirement": 204.0,
+      "adultGroup": {
+        "min": 2,
+        "max": 12
+      },
       "barrier": {
         "height": 1.2,
         "grade": 2.0
@@ -5265,6 +5389,10 @@
       },
       "landRequirement": 425.0,
       "familyLandRequirement": 885.0,
+      "adultGroup": {
+        "min": 3,
+        "max": 10
+      },
       "barrier": {
         "height": 1.25,
         "grade": 2.0
@@ -5456,6 +5584,10 @@
       },
       "landRequirement": 410.0,
       "familyLandRequirement": 610.0,
+      "adultGroup": {
+        "min": 4,
+        "max": 20
+      },
       "barrier": {
         "height": 1.25,
         "grade": 2.0
@@ -5653,6 +5785,10 @@
       },
       "landRequirement": 240.0,
       "familyLandRequirement": 300.0,
+      "adultGroup": {
+        "min": 1,
+        "max": 5
+      },
       "barrier": {
         "height": 1.25,
         "grade": 2.0
@@ -5841,6 +5977,10 @@
       },
       "landRequirement": 780.0,
       "familyLandRequirement": 955.0,
+      "adultGroup": {
+        "min": 3,
+        "max": 10
+      },
       "barrier": {
         "height": 5.0,
         "grade": 3.0
@@ -6031,6 +6171,10 @@
       },
       "landRequirement": 949.0,
       "familyLandRequirement": 9636,
+      "adultGroup": {
+        "min": 3,
+        "max": 30
+      },
       "barrier": {
         "height": 2.0,
         "grade": 4.0
@@ -6220,6 +6364,10 @@
       },
       "landRequirement": 780.0,
       "familyLandRequirement": 880.0,
+      "adultGroup": {
+        "min": 1,
+        "max": 6
+      },
       "barrier": {
         "height": 5.0,
         "grade": 3.0
@@ -6414,6 +6562,10 @@
       },
       "landRequirement": 575.0,
       "familyLandRequirement": 725.0,
+      "adultGroup": {
+        "min": 2,
+        "max": 12
+      },
       "barrier": {
         "height": 1.25,
         "grade": 2.0
@@ -6602,6 +6754,10 @@
       },
       "landRequirement": 560,
       "familyLandRequirement": 784,
+      "adultGroup": {
+        "min": 3,
+        "max": 15
+      },
       "barrier": {
         "height": 2.0,
         "grade": 2.0
@@ -6790,6 +6946,10 @@
       },
       "landRequirement": 355,
       "familyLandRequirement": 655,
+      "adultGroup": {
+        "min": 4,
+        "max": 20
+      },
       "barrier": {
         "height": 1.25,
         "grade": 2.0
@@ -6986,6 +7146,10 @@
       },
       "landRequirement": 590.0,
       "familyLandRequirement": 756.0,
+      "adultGroup": {
+        "min": 1,
+        "max": 2
+      },
       "barrier": {
         "height": 3.0,
         "grade": 3.0
@@ -7173,6 +7337,10 @@
       },
       "landRequirement": 705.0,
       "familyLandRequirement": 927.0,
+      "adultGroup": {
+        "min": 1,
+        "max": 3
+      },
       "barrier": {
         "height": 2.0,
         "grade": 2.0
@@ -7360,6 +7528,10 @@
       },
       "landRequirement": 182.0,
       "familyLandRequirement": 214.0,
+      "adultGroup": {
+        "min": 1,
+        "max": 3
+      },
       "barrier": {
         "height": 2.0,
         "grade": 2.0
@@ -7547,6 +7719,10 @@
       },
       "landRequirement": 543.0,
       "familyLandRequirement": 756.0,
+      "adultGroup": {
+        "min": 1,
+        "max": 2
+      },
       "barrier": {
         "height": 3.0,
         "grade": 2.0
@@ -7738,6 +7914,10 @@
       },
       "landRequirement": 300.0,
       "familyLandRequirement": 390.0,
+      "adultGroup": {
+        "min": 5,
+        "max": 15
+      },
       "barrier": {
         "height": 1.25,
         "grade": 2.0
@@ -7931,6 +8111,10 @@
       },
       "landRequirement": 210.0,
       "familyLandRequirement": 298.0,
+      "adultGroup": {
+        "min": 8,
+        "max": 40
+      },
       "barrier": {
         "height": 1.25,
         "grade": 1.0
@@ -7963,6 +8147,10 @@
       },
       "landRequirement": 675.0,
       "familyLandRequirement": 825.0,
+      "adultGroup": {
+        "min": 1,
+        "max": 8
+      },
       "barrier": {
         "height": 1.25,
         "grade": 2.0
@@ -8165,6 +8353,10 @@
       },
       "landRequirement": 290.0,
       "familyLandRequirement": 310.0,
+      "adultGroup": {
+        "min": 1,
+        "max": 7
+      },
       "barrier": {
         "height": 1.25,
         "grade": 2.0
@@ -8362,6 +8554,10 @@
       },
       "landRequirement": 225.0,
       "familyLandRequirement": 315.0,
+      "adultGroup": {
+        "min": 1,
+        "max": 2
+      },
       "barrier": {
         "height": 1.0,
         "grade": 2.0
@@ -8548,6 +8744,10 @@
       },
       "landRequirement": 215.0,
       "familyLandRequirement": 245.0,
+      "adultGroup": {
+        "min": 2,
+        "max": 6
+      },
       "barrier": {
         "height": 3.0,
         "grade": 2.0
@@ -8742,6 +8942,10 @@
       },
       "landRequirement": 705.0,
       "familyLandRequirement": 927.0,
+      "adultGroup": {
+        "min": 1,
+        "max": 2
+      },
       "barrier": {
         "height": 3.0,
         "grade": 3.0
@@ -8933,6 +9137,10 @@
       },
       "landRequirement": 920.0,
       "familyLandRequirement": 1150.0,
+      "adultGroup": {
+        "min": 2,
+        "max": 12
+      },
       "barrier": {
         "height": 3.0,
         "grade": 2.0
@@ -9122,6 +9330,10 @@
       },
       "landRequirement": 261,
       "familyLandRequirement": 329,
+      "adultGroup": {
+        "min": 1,
+        "max": 2
+      },
       "barrier": {
         "height": 1.5,
         "grade": 2.0
@@ -9309,6 +9521,10 @@
       },
       "landRequirement": 425.0,
       "familyLandRequirement": 618.0,
+      "adultGroup": {
+        "min": 3,
+        "max": 40
+      },
       "barrier": {
         "height": 1.25,
         "grade": 2.0
@@ -9340,6 +9556,10 @@
       },
       "landRequirement": 425.0,
       "familyLandRequirement": 545.0,
+      "adultGroup": {
+        "min": 3,
+        "max": 20
+      },
       "barrier": {
         "height": 1.25,
         "grade": 2.0
@@ -9534,6 +9754,10 @@
       },
       "landRequirement": 1162.0,
       "familyLandRequirement": 1346.0,
+      "adultGroup": {
+        "min": 2,
+        "max": 25
+      },
       "barrier": {
         "height": 1.25,
         "grade": 2.0
@@ -9721,6 +9945,10 @@
       },
       "landRequirement": 1162.0,
       "familyLandRequirement": 1346.0,
+      "adultGroup": {
+        "min": 2,
+        "max": 12
+      },
       "barrier": {
         "height": 1.25,
         "grade": 2.0
@@ -9908,6 +10136,10 @@
       },
       "landRequirement": 600.0,
       "familyLandRequirement": 800.0,
+      "adultGroup": {
+        "min": 2,
+        "max": 13
+      },
       "barrier": {
         "height": 1.25,
         "grade": 3.0
@@ -10103,6 +10335,10 @@
       },
       "landRequirement": 450.0,
       "familyLandRequirement": 825.0,
+      "adultGroup": {
+        "min": 1,
+        "max": 6
+      },
       "barrier": {
         "height": 1.25,
         "grade": 2.0
@@ -10297,6 +10533,10 @@
       },
       "landRequirement": 615.0,
       "familyLandRequirement": 945.0,
+      "adultGroup": {
+        "min": 1,
+        "max": 2
+      },
       "barrier": {
         "height": 3.0,
         "grade": 3.0
@@ -10486,6 +10726,10 @@
       },
       "landRequirement": 360.0,
       "familyLandRequirement": 432.0,
+      "adultGroup": {
+        "min": 1,
+        "max": 7
+      },
       "barrier": {
         "height": 1.0,
         "grade": 2.0
@@ -10673,6 +10917,10 @@
       },
       "landRequirement": 360.0,
       "familyLandRequirement": 450.0,
+      "adultGroup": {
+        "min": 3,
+        "max": 16
+      },
       "barrier": {
         "height": 1.25,
         "grade": 2.0
@@ -10866,6 +11114,10 @@
       },
       "landRequirement": 182.0,
       "familyLandRequirement": 238.0,
+      "adultGroup": {
+        "min": 1,
+        "max": 10
+      },
       "barrier": {
         "height": 1.5,
         "grade": 2.0
@@ -11054,6 +11306,10 @@
       },
       "landRequirement": 950.0,
       "familyLandRequirement": 1230.0,
+      "adultGroup": {
+        "min": 1,
+        "max": 2
+      },
       "barrier": {
         "height": 2.0,
         "grade": 4.0
@@ -11240,6 +11496,10 @@
       },
       "landRequirement": 270.0,
       "familyLandRequirement": 450.0,
+      "adultGroup": {
+        "min": 1,
+        "max": 2
+      },
       "barrier": {
         "height": 3.0,
         "grade": 2.0
@@ -11426,6 +11686,10 @@
       },
       "landRequirement": 230.0,
       "familyLandRequirement": 260.0,
+      "adultGroup": {
+        "min": 1,
+        "max": 4
+      },
       "barrier": {
         "height": 0.5,
         "grade": 1.0
@@ -11614,6 +11878,10 @@
       },
       "landRequirement": 270.0,
       "familyLandRequirement": 530.0,
+      "adultGroup": {
+        "min": 5,
+        "max": 10
+      },
       "barrier": {
         "height": 1.25,
         "grade": 2.0
@@ -11802,6 +12070,10 @@
       },
       "landRequirement": 510,
       "familyLandRequirement": 786,
+      "adultGroup": {
+        "min": 1,
+        "max": 7
+      },
       "barrier": {
         "height": 1.0,
         "grade": 2.0
@@ -11990,6 +12262,10 @@
       },
       "landRequirement": 660.0,
       "familyLandRequirement": 780.0,
+      "adultGroup": {
+        "min": 1,
+        "max": 2
+      },
       "barrier": {
         "height": 1.25,
         "grade": 2.0
@@ -12182,6 +12458,10 @@
       },
       "landRequirement": 504,
       "familyLandRequirement": 696,
+      "adultGroup": {
+        "min": 2,
+        "max": 15
+      },
       "barrier": {
         "height": 1.8,
         "grade": 2.0
@@ -12369,6 +12649,10 @@
       },
       "landRequirement": 900.0,
       "familyLandRequirement": 1200.0,
+      "adultGroup": {
+        "min": 1,
+        "max": 10
+      },
       "barrier": {
         "height": 2.0,
         "grade": 4.0
@@ -12560,6 +12844,10 @@
       },
       "landRequirement": 425,
       "familyLandRequirement": 719,
+      "adultGroup": {
+        "min": 10,
+        "max": 500
+      },
       "barrier": {
         "height": 1.0,
         "grade": 1.0
@@ -12747,6 +13035,10 @@
       },
       "landRequirement": 660.0,
       "familyLandRequirement": 993.0,
+      "adultGroup": {
+        "min": 3,
+        "max": 13
+      },
       "barrier": {
         "height": 1.25,
         "grade": 2.0
@@ -12940,6 +13232,10 @@
       },
       "landRequirement": 500,
       "familyLandRequirement": 624,
+      "adultGroup": {
+        "min": 3,
+        "max": 8
+      },
       "barrier": {
         "height": 1.8,
         "grade": 2.0
@@ -12973,6 +13269,10 @@
       },
       "landRequirement": 750.0,
       "familyLandRequirement": 850.0,
+      "adultGroup": {
+        "min": 1,
+        "max": 2
+      },
       "barrier": {
         "height": 2.0,
         "grade": 4.0
@@ -13160,6 +13460,10 @@
       },
       "landRequirement": 500.0,
       "familyLandRequirement": 565.0,
+      "adultGroup": {
+        "min": 6,
+        "max": 100
+      },
       "barrier": {
         "height": 3.0,
         "grade": 4.0
@@ -13350,6 +13654,10 @@
       },
       "landRequirement": 455.0,
       "familyLandRequirement": 735.0,
+      "adultGroup": {
+        "min": 3,
+        "max": 20
+      },
       "barrier": {
         "height": 1.25,
         "grade": 3.0
@@ -13543,6 +13851,10 @@
       },
       "landRequirement": 425.0,
       "familyLandRequirement": 618.0,
+      "adultGroup": {
+        "min": 3,
+        "max": 50
+      },
       "barrier": {
         "height": 1.25,
         "grade": 2.0
@@ -13735,6 +14047,10 @@
       },
       "landRequirement": 550.0,
       "familyLandRequirement": 630.0,
+      "adultGroup": {
+        "min": 1,
+        "max": 2
+      },
       "barrier": {
         "height": 2.0,
         "grade": 4.0
@@ -13922,6 +14238,10 @@
       },
       "landRequirement": 2008,
       "familyLandRequirement": 5522,
+      "adultGroup": {
+        "min": 3,
+        "max": 30
+      },
       "barrier": {
         "height": 2.0,
         "grade": 4.0
@@ -14113,6 +14433,10 @@
       },
       "landRequirement": 575.0,
       "familyLandRequirement": 733.0,
+      "adultGroup": {
+        "min": 1,
+        "max": 2
+      },
       "barrier": {
         "height": 2.0,
         "grade": 3.0
@@ -14301,6 +14625,10 @@
       },
       "landRequirement": 949,
       "familyLandRequirement": 1782,
+      "adultGroup": {
+        "min": 3,
+        "max": 30
+      },
       "barrier": {
         "height": 2.0,
         "grade": 4.0
@@ -14494,6 +14822,10 @@
       },
       "landRequirement": 312.0,
       "familyLandRequirement": 408.0,
+      "adultGroup": {
+        "min": 4,
+        "max": 20
+      },
       "barrier": {
         "height": 1.25,
         "grade": 1.0
@@ -14681,6 +15013,10 @@
       },
       "landRequirement": 1037,
       "familyLandRequirement": 1575,
+      "adultGroup": {
+        "min": 1,
+        "max": 2
+      },
       "barrier": {
         "height": 2.0,
         "grade": 4.0
@@ -14874,6 +15210,10 @@
       },
       "landRequirement": 705,
       "familyLandRequirement": 965,
+      "adultGroup": {
+        "min": 1,
+        "max": 2
+      },
       "barrier": {
         "height": 3.0,
         "grade": 3.0
@@ -15061,6 +15401,10 @@
       },
       "landRequirement": 300.0,
       "familyLandRequirement": 366.0,
+      "adultGroup": {
+        "min": 8,
+        "max": 50
+      },
       "barrier": {
         "height": 2.0,
         "grade": 1.0
@@ -15249,6 +15593,10 @@
       },
       "landRequirement": 210.0,
       "familyLandRequirement": 390.0,
+      "adultGroup": {
+        "min": 2,
+        "max": 8
+      },
       "barrier": {
         "height": 3.0,
         "grade": 2.0
@@ -15437,6 +15785,10 @@
       },
       "landRequirement": 344,
       "familyLandRequirement": 399,
+      "adultGroup": {
+        "min": 6,
+        "max": 500
+      },
       "barrier": {
         "height": 1.5,
         "grade": 2.0
@@ -15623,6 +15975,10 @@
       },
       "landRequirement": 200.0,
       "familyLandRequirement": 275.0,
+      "adultGroup": {
+        "min": 1,
+        "max": 2
+      },
       "barrier": {
         "height": 1.25,
         "grade": 2.0
@@ -15810,6 +16166,10 @@
       },
       "landRequirement": 180.0,
       "familyLandRequirement": 300.0,
+      "adultGroup": {
+        "min": 1,
+        "max": 4
+      },
       "barrier": {
         "height": 1.0,
         "grade": 1.0
@@ -16000,6 +16360,10 @@
       },
       "landRequirement": 600.0,
       "familyLandRequirement": 720.0,
+      "adultGroup": {
+        "min": 1,
+        "max": 2
+      },
       "barrier": {
         "height": 1.0,
         "grade": 2.0
@@ -16186,6 +16550,10 @@
       },
       "landRequirement": 230.0,
       "familyLandRequirement": 350.0,
+      "adultGroup": {
+        "min": 2,
+        "max": 6
+      },
       "barrier": {
         "height": 4.0,
         "grade": 2.0
@@ -16375,6 +16743,10 @@
       },
       "landRequirement": 400.0,
       "familyLandRequirement": 580.0,
+      "adultGroup": {
+        "min": 3,
+        "max": 20
+      },
       "barrier": {
         "height": 3.0,
         "grade": 2.0
@@ -16563,6 +16935,10 @@
       },
       "landRequirement": 240.0,
       "familyLandRequirement": 260.0,
+      "adultGroup": {
+        "min": 6,
+        "max": 500
+      },
       "barrier": {
         "height": 1.0,
         "grade": 1.0
@@ -16751,6 +17127,10 @@
       },
       "landRequirement": 550.0,
       "familyLandRequirement": 650.0,
+      "adultGroup": {
+        "min": 2,
+        "max": 30
+      },
       "barrier": {
         "height": 2.0,
         "grade": 4.0
@@ -16944,6 +17324,10 @@
       },
       "landRequirement": 467,
       "familyLandRequirement": 617,
+      "adultGroup": {
+        "min": 1,
+        "max": 2
+      },
       "barrier": {
         "height": 2.0,
         "grade": 3.0
@@ -17136,6 +17520,10 @@
       },
       "landRequirement": 400.0,
       "familyLandRequirement": 452.0,
+      "adultGroup": {
+        "min": 5,
+        "max": 10
+      },
       "barrier": {
         "height": 3.0,
         "grade": 2.0
@@ -17325,6 +17713,10 @@
       },
       "landRequirement": 930.0,
       "familyLandRequirement": 1395.0,
+      "adultGroup": {
+        "min": 1,
+        "max": 2
+      },
       "barrier": {
         "height": 3.0,
         "grade": 2.0
@@ -17515,6 +17907,10 @@
       },
       "landRequirement": 390.0,
       "familyLandRequirement": 480.0,
+      "adultGroup": {
+        "min": 2,
+        "max": 12
+      },
       "barrier": {
         "height": 1.25,
         "grade": 3.0
@@ -17704,6 +18100,10 @@
       },
       "landRequirement": 180.0,
       "familyLandRequirement": 208.0,
+      "adultGroup": {
+        "min": 2,
+        "max": 30
+      },
       "barrier": {
         "height": 1.2,
         "grade": 2.0
@@ -17897,6 +18297,10 @@
       },
       "landRequirement": 774,
       "familyLandRequirement": 1308.0,
+      "adultGroup": {
+        "min": 1,
+        "max": 4
+      },
       "barrier": {
         "height": 1.25,
         "grade": 3.0
@@ -18087,6 +18491,10 @@
       },
       "landRequirement": 450.0,
       "familyLandRequirement": 488.0,
+      "adultGroup": {
+        "min": 2,
+        "max": 50
+      },
       "barrier": {
         "height": 1.25,
         "grade": 1.0
@@ -18279,6 +18687,10 @@
       },
       "landRequirement": 435,
       "familyLandRequirement": 645,
+      "adultGroup": {
+        "min": 3,
+        "max": 50
+      },
       "barrier": {
         "height": 1.25,
         "grade": 2.0
@@ -18471,6 +18883,10 @@
       },
       "landRequirement": 375,
       "familyLandRequirement": 639,
+      "adultGroup": {
+        "min": 1,
+        "max": 3
+      },
       "barrier": {
         "height": 0.5,
         "grade": 2.0
@@ -18658,6 +19074,10 @@
       },
       "landRequirement": 450.0,
       "familyLandRequirement": 630.0,
+      "adultGroup": {
+        "min": 3,
+        "max": 10
+      },
       "barrier": {
         "height": 1.25,
         "grade": 3.0
@@ -18854,6 +19274,10 @@
       },
       "landRequirement": 182.0,
       "familyLandRequirement": 214.0,
+      "adultGroup": {
+        "min": 1,
+        "max": 2
+      },
       "barrier": {
         "height": 1.0,
         "grade": 1.0
@@ -18888,6 +19312,10 @@
       },
       "landRequirement": 815,
       "familyLandRequirement": 969,
+      "adultGroup": {
+        "min": 2,
+        "max": 8
+      },
       "barrier": {
         "height": 1.5,
         "grade": 2.0
@@ -19077,6 +19505,10 @@
       },
       "landRequirement": 180.0,
       "familyLandRequirement": 220.0,
+      "adultGroup": {
+        "min": 1,
+        "max": 2
+      },
       "barrier": {
         "height": 1.0,
         "grade": 1.0
@@ -19264,6 +19696,10 @@
       },
       "landRequirement": 290.0,
       "familyLandRequirement": 320.0,
+      "adultGroup": {
+        "min": 1,
+        "max": 5
+      },
       "barrier": {
         "height": 1.3,
         "grade": 2.0
@@ -19451,6 +19887,10 @@
       },
       "landRequirement": 300.0,
       "familyLandRequirement": 360.0,
+      "adultGroup": {
+        "min": 1,
+        "max": 5
+      },
       "barrier": {
         "height": 1.25,
         "grade": 2.0
@@ -19642,6 +20082,10 @@
       },
       "landRequirement": 534.0,
       "familyLandRequirement": 756.0,
+      "adultGroup": {
+        "min": 1,
+        "max": 2
+      },
       "barrier": {
         "height": 3.0,
         "grade": 2.0
@@ -19828,6 +20272,10 @@
       },
       "landRequirement": 1081.0,
       "familyLandRequirement": 1331.0,
+      "adultGroup": {
+        "min": 1,
+        "max": 2
+      },
       "barrier": {
         "height": 1.25,
         "grade": 2.0
@@ -20018,6 +20466,10 @@
       },
       "landRequirement": 200.0,
       "familyLandRequirement": 268.0,
+      "adultGroup": {
+        "min": 1,
+        "max": 2
+      },
       "barrier": {
         "height": 3.0,
         "grade": 2.0
@@ -20050,6 +20502,10 @@
       },
       "landRequirement": 400.0,
       "familyLandRequirement": 900.0,
+      "adultGroup": {
+        "min": 3,
+        "max": 9
+      },
       "barrier": {
         "height": 1.25,
         "grade": 2.0
@@ -20238,6 +20694,10 @@
       },
       "landRequirement": 510.0,
       "familyLandRequirement": 1050.0,
+      "adultGroup": {
+        "min": 3,
+        "max": 6
+      },
       "barrier": {
         "height": 1.25,
         "grade": 2.0
@@ -20439,6 +20899,10 @@
       },
       "landRequirement": 270,
       "familyLandRequirement": 360,
+      "adultGroup": {
+        "min": 1,
+        "max": 3
+      },
       "barrier": {
         "height": 1.0,
         "grade": 1.0
@@ -20628,6 +21092,10 @@
       },
       "landRequirement": 3970,
       "familyLandRequirement": 5990,
+      "adultGroup": {
+        "min": 1,
+        "max": 2
+      },
       "barrier": {
         "height": 2.0,
         "grade": 4.0
@@ -20815,6 +21283,10 @@
       },
       "landRequirement": 400.0,
       "familyLandRequirement": 523.0,
+      "adultGroup": {
+        "min": 3,
+        "max": 19
+      },
       "barrier": {
         "height": 4.5,
         "grade": 3.0
@@ -21008,6 +21480,10 @@
       },
       "landRequirement": 370.0,
       "familyLandRequirement": 490.0,
+      "adultGroup": {
+        "min": 1,
+        "max": 11
+      },
       "barrier": {
         "height": 1.25,
         "grade": 2.0
@@ -21198,6 +21674,10 @@
       },
       "landRequirement": 575.0,
       "familyLandRequirement": 1091.0,
+      "adultGroup": {
+        "min": 3,
+        "max": 8
+      },
       "barrier": {
         "height": 1.25,
         "grade": 2.0
@@ -21230,6 +21710,10 @@
       },
       "landRequirement": 540,
       "familyLandRequirement": 660,
+      "adultGroup": {
+        "min": 2,
+        "max": 4
+      },
       "barrier": {
         "height": 1.0,
         "grade": 3.0
@@ -21418,6 +21902,10 @@
       },
       "landRequirement": 200.0,
       "familyLandRequirement": 270.0,
+      "adultGroup": {
+        "min": 1,
+        "max": 24
+      },
       "barrier": {
         "height": 1.25,
         "grade": 1.0
@@ -21611,6 +22099,10 @@
       },
       "landRequirement": 220,
       "familyLandRequirement": 320,
+      "adultGroup": {
+        "min": 2,
+        "max": 5
+      },
       "barrier": {
         "height": 3.0,
         "grade": 2.0
@@ -21804,6 +22296,10 @@
       },
       "landRequirement": 360.0,
       "familyLandRequirement": 518.0,
+      "adultGroup": {
+        "min": 3,
+        "max": 9
+      },
       "barrier": {
         "height": 1.5,
         "grade": 2.0
@@ -22004,6 +22500,10 @@
       },
       "landRequirement": 250.0,
       "familyLandRequirement": 330.0,
+      "adultGroup": {
+        "min": 1,
+        "max": 14
+      },
       "barrier": {
         "height": 3.0,
         "grade": 2.0
@@ -22191,6 +22691,10 @@
       },
       "landRequirement": 330.0,
       "familyLandRequirement": 450.0,
+      "adultGroup": {
+        "min": 2,
+        "max": 10
+      },
       "barrier": {
         "height": 3.0,
         "grade": 3.0
@@ -22382,6 +22886,10 @@
       },
       "landRequirement": 220.0,
       "familyLandRequirement": 240.0,
+      "adultGroup": {
+        "min": 1,
+        "max": 2
+      },
       "barrier": {
         "height": 2.0,
         "grade": 2.0
@@ -22570,6 +23078,10 @@
       },
       "landRequirement": 300.0,
       "familyLandRequirement": 335.0,
+      "adultGroup": {
+        "min": 2,
+        "max": 10
+      },
       "barrier": {
         "height": 1.25,
         "grade": 2.0
@@ -22767,6 +23279,10 @@
       },
       "landRequirement": 210.0,
       "familyLandRequirement": 238.0,
+      "adultGroup": {
+        "min": 3,
+        "max": 30
+      },
       "barrier": {
         "height": 1.25,
         "grade": 1.0
@@ -22801,6 +23317,10 @@
       },
       "landRequirement": 375,
       "familyLandRequirement": 567,
+      "adultGroup": {
+        "min": 4,
+        "max": 80
+      },
       "barrier": {
         "height": 1.0,
         "grade": 1.0
@@ -22990,6 +23510,10 @@
       },
       "landRequirement": 250.0,
       "familyLandRequirement": 475.0,
+      "adultGroup": {
+        "min": 1,
+        "max": 30
+      },
       "barrier": {
         "height": 3.0,
         "grade": 2.0
@@ -23183,6 +23707,10 @@
       },
       "landRequirement": 370.0,
       "familyLandRequirement": 580.0,
+      "adultGroup": {
+        "min": 3,
+        "max": 12
+      },
       "barrier": {
         "height": 1.5,
         "grade": 2.0
@@ -23372,6 +23900,10 @@
       },
       "landRequirement": 1306.0,
       "familyLandRequirement": 1970.0,
+      "adultGroup": {
+        "min": 2,
+        "max": 12
+      },
       "barrier": {
         "height": 2.0,
         "grade": 3.0
@@ -23572,6 +24104,10 @@
       },
       "landRequirement": 210.0,
       "familyLandRequirement": 238.0,
+      "adultGroup": {
+        "min": 3,
+        "max": 30
+      },
       "barrier": {
         "height": 1.25,
         "grade": 1.0
@@ -23760,6 +24296,10 @@
       },
       "landRequirement": 450.0,
       "familyLandRequirement": 570.0,
+      "adultGroup": {
+        "min": 1,
+        "max": 11
+      },
       "barrier": {
         "height": 1.25,
         "grade": 2.0
@@ -23958,6 +24498,10 @@
       },
       "landRequirement": 425.0,
       "familyLandRequirement": 945.0,
+      "adultGroup": {
+        "min": 4,
+        "max": 11
+      },
       "barrier": {
         "height": 1.25,
         "grade": 2.0
@@ -24146,6 +24690,10 @@
       },
       "landRequirement": 420,
       "familyLandRequirement": 653.0,
+      "adultGroup": {
+        "min": 1,
+        "max": 2
+      },
       "barrier": {
         "height": 1.0,
         "grade": 2.0
@@ -24332,6 +24880,10 @@
       },
       "landRequirement": 200.0,
       "familyLandRequirement": 328.0,
+      "adultGroup": {
+        "min": 1,
+        "max": 2
+      },
       "barrier": {
         "height": 3.0,
         "grade": 2.0
@@ -24519,6 +25071,10 @@
       },
       "landRequirement": 270.0,
       "familyLandRequirement": 410.0,
+      "adultGroup": {
+        "min": 3,
+        "max": 11
+      },
       "barrier": {
         "height": 1.25,
         "grade": 2.0
@@ -24712,6 +25268,10 @@
       },
       "landRequirement": 305.0,
       "familyLandRequirement": 465.0,
+      "adultGroup": {
+        "min": 2,
+        "max": 6
+      },
       "barrier": {
         "height": 5.0,
         "grade": 3.0
@@ -24902,6 +25462,10 @@
       },
       "landRequirement": 705.0,
       "familyLandRequirement": 927.0,
+      "adultGroup": {
+        "min": 1,
+        "max": 2
+      },
       "barrier": {
         "height": 3.0,
         "grade": 3.0
@@ -25090,6 +25654,10 @@
       },
       "landRequirement": 850.0,
       "familyLandRequirement": 1010.0,
+      "adultGroup": {
+        "min": 1,
+        "max": 2
+      },
       "barrier": {
         "height": 3.0,
         "grade": 4.0
@@ -25276,6 +25844,10 @@
       },
       "landRequirement": 705.0,
       "familyLandRequirement": 927.0,
+      "adultGroup": {
+        "min": 1,
+        "max": 2
+      },
       "barrier": {
         "height": 2.0,
         "grade": 3.0
@@ -25462,6 +26034,10 @@
       },
       "landRequirement": 625.0,
       "familyLandRequirement": 945.0,
+      "adultGroup": {
+        "min": 1,
+        "max": 7
+      },
       "barrier": {
         "height": 1.25,
         "grade": 3.0
@@ -25653,6 +26229,10 @@
       },
       "landRequirement": 400.0,
       "familyLandRequirement": 550.0,
+      "adultGroup": {
+        "min": 1,
+        "max": 2
+      },
       "barrier": {
         "height": 1.8,
         "grade": 2.0
@@ -25839,6 +26419,10 @@
       },
       "landRequirement": 1275.0,
       "familyLandRequirement": 2325.0,
+      "adultGroup": {
+        "min": 1,
+        "max": 5
+      },
       "barrier": {
         "height": 2.0,
         "grade": 4.0
@@ -26039,6 +26623,10 @@
       },
       "landRequirement": 850.0,
       "familyLandRequirement": 970.0,
+      "adultGroup": {
+        "min": 1,
+        "max": 2
+      },
       "barrier": {
         "height": 3.0,
         "grade": 4.0
@@ -26227,6 +26815,10 @@
       },
       "landRequirement": 460,
       "familyLandRequirement": 524,
+      "adultGroup": {
+        "min": 1,
+        "max": 6
+      },
       "barrier": {
         "height": 1.0,
         "grade": 2.0
@@ -26258,6 +26850,10 @@
       },
       "landRequirement": 1162.0,
       "familyLandRequirement": 1346.0,
+      "adultGroup": {
+        "min": 2,
+        "max": 4
+      },
       "barrier": {
         "height": 1.25,
         "grade": 2.0
@@ -26445,6 +27041,10 @@
       },
       "landRequirement": 425.0,
       "familyLandRequirement": 618.0,
+      "adultGroup": {
+        "min": 3,
+        "max": 35
+      },
       "barrier": {
         "height": 1.25,
         "grade": 2.0
@@ -26646,6 +27246,10 @@
       },
       "landRequirement": 1162.0,
       "familyLandRequirement": 1346.0,
+      "adultGroup": {
+        "min": 1,
+        "max": 2
+      },
       "barrier": {
         "height": 1.25,
         "grade": 2.0
@@ -26834,6 +27438,10 @@
       },
       "landRequirement": 180.0,
       "familyLandRequirement": 264.0,
+      "adultGroup": {
+        "min": 1,
+        "max": 2
+      },
       "barrier": {
         "height": 1.25,
         "grade": 1.0
@@ -27025,6 +27633,10 @@
       },
       "landRequirement": 920.0,
       "familyLandRequirement": 1204.0,
+      "adultGroup": {
+        "min": 1,
+        "max": 2
+      },
       "barrier": {
         "height": 3.0,
         "grade": 4.0
@@ -27216,6 +27828,10 @@
       },
       "landRequirement": 200.0,
       "familyLandRequirement": 236.0,
+      "adultGroup": {
+        "min": 2,
+        "max": 80
+      },
       "barrier": {
         "height": 1.25,
         "grade": 1.0
@@ -27407,6 +28023,10 @@
       },
       "landRequirement": 390.0,
       "familyLandRequirement": 480.0,
+      "adultGroup": {
+        "min": 2,
+        "max": 20
+      },
       "barrier": {
         "height": 1.25,
         "grade": 3.0
@@ -27598,6 +28218,10 @@
       },
       "landRequirement": 290.0,
       "familyLandRequirement": 350.0,
+      "adultGroup": {
+        "min": 1,
+        "max": 5
+      },
       "barrier": {
         "height": 1.25,
         "grade": 3.0
@@ -27788,6 +28412,10 @@
       },
       "landRequirement": 200.0,
       "familyLandRequirement": 695.0,
+      "adultGroup": {
+        "min": 1,
+        "max": 5
+      },
       "barrier": {
         "height": 1.0,
         "grade": 2.0
@@ -27974,6 +28602,10 @@
       },
       "landRequirement": 425.0,
       "familyLandRequirement": 618.0,
+      "adultGroup": {
+        "min": 3,
+        "max": 36
+      },
       "barrier": {
         "height": 1.25,
         "grade": 2.0
@@ -28175,6 +28807,10 @@
       },
       "landRequirement": 1162.0,
       "familyLandRequirement": 1346.0,
+      "adultGroup": {
+        "min": 2,
+        "max": 12
+      },
       "barrier": {
         "height": 1.25,
         "grade": 2.0
@@ -28361,6 +28997,10 @@
       },
       "landRequirement": 705.0,
       "familyLandRequirement": 927.0,
+      "adultGroup": {
+        "min": 2,
+        "max": 30
+      },
       "barrier": {
         "height": 3.0,
         "grade": 3.0
@@ -28547,6 +29187,10 @@
       },
       "landRequirement": 780.0,
       "familyLandRequirement": 1105.0,
+      "adultGroup": {
+        "min": 5,
+        "max": 15
+      },
       "barrier": {
         "height": 5.0,
         "grade": 3.0
@@ -28735,6 +29379,10 @@
       },
       "landRequirement": 780.0,
       "familyLandRequirement": 955.0,
+      "adultGroup": {
+        "min": 3,
+        "max": 6
+      },
       "barrier": {
         "height": 5.0,
         "grade": 3.0
@@ -28923,6 +29571,10 @@
       },
       "landRequirement": 210.0,
       "familyLandRequirement": 230.0,
+      "adultGroup": {
+        "min": 2,
+        "max": 12
+      },
       "barrier": {
         "height": 3.0,
         "grade": 1.0
@@ -29115,6 +29767,10 @@
       },
       "landRequirement": 310.0,
       "familyLandRequirement": 858.0,
+      "adultGroup": {
+        "min": 3,
+        "max": 30
+      },
       "barrier": {
         "height": 1.25,
         "grade": 3.0
@@ -29308,6 +29964,10 @@
       },
       "landRequirement": 590,
       "familyLandRequirement": 905,
+      "adultGroup": {
+        "min": 3,
+        "max": 30
+      },
       "barrier": {
         "height": 1.25,
         "grade": 3.0
@@ -29502,6 +30162,10 @@
       },
       "landRequirement": 420.0,
       "familyLandRequirement": 578.0,
+      "adultGroup": {
+        "min": 2,
+        "max": 13
+      },
       "barrier": {
         "height": 1.25,
         "grade": 3.0
@@ -29696,6 +30360,10 @@
       },
       "landRequirement": 574.0,
       "familyLandRequirement": 650.0,
+      "adultGroup": {
+        "min": 1,
+        "max": 2
+      },
       "barrier": {
         "height": 3.0,
         "grade": 3.0

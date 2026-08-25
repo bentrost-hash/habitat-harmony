@@ -3,6 +3,7 @@ const byId = new Map(animals.map((a) => [a.id, a]));
 const E = window.HabitatEngine;
 let selected = null;
 let habitat = [];
+let habitatPopulation = {};
 let welfareMode =
   localStorage.getItem("habitat-harmony-welfare-mode") || "strict";
 const $ = (id) => document.getElementById(id);
@@ -31,7 +32,26 @@ const savedPlans = () =>
 const savePlans = (plans) =>
   localStorage.setItem("habitat-harmony-plans", JSON.stringify(plans));
 const comparisonOptions = () => ({ relaxedFoliage: welfareMode === "relaxed" });
+const defaultPopulation = (animal) => ({
+  adults: animal.adultGroup?.min || 1,
+  young: 0,
+});
+const populationFor = (animal) => {
+  if (!habitatPopulation[animal.id])
+    habitatPopulation[animal.id] = defaultPopulation(animal);
+  return habitatPopulation[animal.id];
+};
+const hydratePopulation = (population = {}) => {
+  habitatPopulation = {};
+  habitat.forEach((animal) => {
+    const saved = population[animal.id] || {};
+    habitatPopulation[animal.id] = {
+      adults: Math.max(1, Math.floor(Number(saved.adults) || animal.adultGroup?.min || 1)),
+      young: Math.max(0, Math.floor(Number(saved.young) || 0)),
 
+    };
+  });
+};
 const ICON_PATHS = {
   heart:
     '<path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8l1.1 1.1L12 21l7.8-7.5 1.1-1.1a5.5 5.5 0 0 0-.1-7.8Z"/>',
@@ -269,17 +289,25 @@ function renderComparison() {
   </div><p class="meta">Pair rating: ${r.sourceBacked ? "reviewed community matrix" : "derived fallback"}.${r.relaxedUpgrade ? " Source rating 2 promoted because foliage-origin preferences are relaxed." : ""} Exact terrain percentages are not claimed where the final source workbook does not expose them.</p>`;
 }
 
+function populationRow(animal) {
+  const counts = populationFor(animal);
+  const range = animal.adultGroup
+    ? `${animal.adultGroup.min}–${animal.adultGroup.max} adults recommended`
+    : "Adult range unavailable";
+  return `<article class="population-row"><div class="population-species"><span><strong>${esc(animal.name)}</strong><small>${esc(range)}</small></span><button type="button" class="population-remove" aria-label="Remove ${esc(animal.name)}" data-remove="${animal.id}">×</button></div><div class="population-controls"><label>Adults<input type="number" inputmode="numeric" min="1" max="999" value="${counts.adults}" aria-label="Adults, ${esc(animal.name)}" data-population-id="${animal.id}" data-population-kind="adults"></label><label>Young<input type="number" inputmode="numeric" min="0" max="999" value="${counts.young}" aria-label="Young, ${esc(animal.name)}" data-population-id="${animal.id}" data-population-kind="young"></label></div></article>`;
+}
+
 function addToHabitat(animal) {
-  if (!habitat.some((a) => a.id === animal.id)) habitat.push(animal);
+  if (!habitat.some((a) => a.id === animal.id)) {
+    habitat.push(animal);
+    populationFor(animal);
+  }
   renderBuilder();
 }
 function renderBuilder() {
   $("builderCount").textContent = habitat.length ? habitat.length : "";
   $("builderChips").innerHTML = habitat
-    .map(
-      (a) =>
-        `<span class="chip">${esc(a.name)}<button aria-label="Remove ${esc(a.name)}" data-remove="${a.id}">×</button></span>`,
-    )
+    .map(populationRow)
     .join("");
   $("savePlan").disabled = habitat.length < 2;
   $("sharePlan").disabled = habitat.length < 2;
@@ -292,7 +320,7 @@ function renderBuilder() {
     renderSavedPlans();
     return;
   }
-  const g = E.buildGroup(habitat, comparisonOptions());
+  const g = E.buildGroup(habitat, { ...comparisonOptions(), population: habitatPopulation });
   const issues = [...g.conflicts, ...g.compromises]
     .map(
       (p) =>
@@ -300,7 +328,7 @@ function renderBuilder() {
     )
     .join("");
   target.className = `verdict verdict-${g.level.key}`;
-  target.innerHTML = `<span class="badge ${g.level.key}">${levelIcon(g.level.key)}${g.level.label}</span><h2>Overall habitat compatibility</h2><p class="verdict-summary">Based on all ${g.pairs.length} pairwise relationships — the most restrictive pair sets the verdict.</p>${issues ? `<div class="conflicts">${issues}</div>` : ""}<div class="intersection"><h3>Shared habitat requirements</h3><dl><dt>Temperature</dt><dd>${tempText(g.temperature)}</dd><dt>Biomes</dt><dd>${g.sharedBiomes.length ? esc(g.sharedBiomes.join(", ")) : "No biome shared by every species"}</dd><dt>Origin</dt><dd>${g.sharedContinents.length ? esc(g.sharedContinents.join(", ")) : "Mixed regions"}</dd><dt>Land baseline</dt><dd>At least ${Math.round(g.minimumLandBaseline).toLocaleString()} m² (largest family-group minimum; add space for larger populations)</dd><dt>Barrier</dt><dd>At least ${g.minimumBarrierHeight} m · Grade ${g.minimumBarrierGrade} (highest species requirement)</dd><dt>Swimming</dt><dd>${g.deepWater ? "Deep water required by at least one species" : g.swimming ? "Swimming access for at least one species" : "No swimming requirement"}</dd><dt>Climbing</dt><dd>${g.climbing ? "Required by at least one species" : "Not required"}</dd><dt>Walkthrough</dt><dd>${g.walkthroughSafe ? "Suitable for every selected species" : "Not suitable for every selected species"}</dd></dl></div>`;
+  target.innerHTML = `<span class="badge ${g.level.key}">${levelIcon(g.level.key)}${g.level.label}</span><h2>Overall habitat compatibility</h2><p class="verdict-summary">Based on all ${g.pairs.length} pairwise relationships — the most restrictive pair sets the verdict.</p>${issues ? `<div class="conflicts">${issues}</div>` : ""}<div class="intersection"><h3>Shared habitat requirements</h3><dl><dt>Population</dt><dd>${g.totalAdults} adults · ${g.totalYoung} young</dd><dt>Adult group check</dt><dd>${g.populationWarnings.length ? `${g.populationWarnings.length} species outside the source-recommended adult range` : "All adult counts are within the source-recommended ranges"}</dd><dt>Count-adjusted land</dt><dd>At least ${Math.round(g.countAdjustedLand).toLocaleString()} m² (conservative adult-only estimate; young are tracked but not included)</dd><dt>Published family floor</dt><dd>${Math.round(g.minimumLandBaseline).toLocaleString()} m² (largest family-group baseline)</dd><dt>Temperature</dt><dd>${tempText(g.temperature)}</dd><dt>Biomes</dt><dd>${g.sharedBiomes.length ? esc(g.sharedBiomes.join(", ")) : "No biome shared by every species"}</dd><dt>Origin</dt><dd>${g.sharedContinents.length ? esc(g.sharedContinents.join(", ")) : "Mixed regions"}</dd><dt>Barrier</dt><dd>At least ${g.minimumBarrierHeight} m · Grade ${g.minimumBarrierGrade} (highest species requirement)</dd><dt>Swimming</dt><dd>${g.deepWater ? "Deep water required by at least one species" : g.swimming ? "Swimming access for at least one species" : "No swimming requirement"}</dd><dt>Climbing</dt><dd>${g.climbing ? "Required by at least one species" : "Not required"}</dd><dt>Walkthrough</dt><dd>${g.walkthroughSafe ? "Suitable for every selected species" : "Not suitable for every selected species"}</dd></dl></div>`;
   renderNextSpecies();
   renderSavedPlans();
 }
@@ -363,6 +391,7 @@ function persistCurrentPlan() {
     id: crypto.randomUUID(),
     name,
     species: habitat.map((a) => a.id),
+    population: JSON.parse(JSON.stringify(habitatPopulation)),
     welfareMode,
     createdAt: new Date().toISOString(),
   });
@@ -376,6 +405,12 @@ async function copyShareLink() {
     return setPlanMessage("Add at least two animals first.", "warning");
   const url = new URL(location.href);
   url.searchParams.set("habitat", habitat.map((a) => a.id).join(","));
+  url.searchParams.set(
+    "counts",
+    habitat
+      .map((animal) => `${populationFor(animal).adults}.${populationFor(animal).young}`)
+      .join(","),
+  );
   url.searchParams.set("mode", welfareMode);
   try {
     await navigator.clipboard.writeText(url.toString());
@@ -466,8 +501,18 @@ $("builderChips").addEventListener("click", (e) => {
   const id = e.target.dataset.remove;
   if (id) {
     habitat = habitat.filter((a) => a.id !== id);
+    delete habitatPopulation[id];
     renderBuilder();
   }
+});
+$("builderChips").addEventListener("change", (e) => {
+  const id = e.target.dataset.populationId;
+  const kind = e.target.dataset.populationKind;
+  if (!id || !["adults", "young"].includes(kind)) return;
+  const minimum = kind === "adults" ? 1 : 0;
+  const value = Math.max(minimum, Math.min(999, Math.floor(Number(e.target.value) || minimum)));
+  habitatPopulation[id][kind] = value;
+  renderBuilder();
 });
 document.addEventListener("click", (e) => {
   const card = e.target.closest("[data-animal]");
@@ -517,6 +562,7 @@ $("savedPlans").addEventListener("click", (e) => {
   habitat = plan.species.map((id) => byId.get(id)).filter(Boolean);
   welfareMode = plan.welfareMode || "strict";
   localStorage.setItem("habitat-harmony-welfare-mode", welfareMode);
+  hydratePopulation(plan.population);
   updateAvailability();
   setTab("builder");
 });
@@ -527,6 +573,7 @@ $("nextSpecies").addEventListener("click", (e) => {
 const linkedHabitat = new URLSearchParams(location.search).get("habitat");
 const linkedMode = new URLSearchParams(location.search).get("mode");
 if (["strict", "relaxed"].includes(linkedMode)) welfareMode = linkedMode;
+const linkedCounts = new URLSearchParams(location.search).get("counts");
 updateAvailability();
 if (linkedHabitat) {
   habitat = linkedHabitat
@@ -534,6 +581,15 @@ if (linkedHabitat) {
     .map((id) => byId.get(id))
     .filter(Boolean);
   if (habitat.length) {
+    const countPairs = linkedCounts?.split(",") || [];
+    hydratePopulation(
+      Object.fromEntries(
+        habitat.map((animal, index) => {
+          const [adults, young] = (countPairs[index] || "").split(".");
+          return [animal.id, { adults, young }];
+        }),
+      ),
+    );
     renderBuilder();
     setTab("builder");
   }
